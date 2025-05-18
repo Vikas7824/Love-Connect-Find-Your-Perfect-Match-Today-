@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LoveConnect - Find Your Perfect Match</title>
+
+    <style>
+
+        /* Global Styles */
+
+        :root {
+
+            --primary-color: #ff4d6d;
+
+            --secondary-color: #ff8fa3;
+
+            --dark-color: #590d22;
+
+            --light-color: #fff0f3;
+
+            --accent-color: #ffccd5;
+
+        }
+
+        
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        
+
+        body {
+
+            background-color: var(--light-color);
+
+            color: var(--dark-color);
+
+            line-height: 1.6;
+
+        }
+
+        
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 0 20px;
+
+        }
+
+        
+
+        /* Header Styles */
+
+        header {
+
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+
+            color: white;
+
+            padding: 20px 0;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+            position: fixed;
+
+            width: 100%;
+
+            top: 0;
+
+            z-index: 1000;
+
+            animation: slideDown 0.5s ease-out;
+
+        }
+
+        
+
+        @keyframes slideDown {
+
+            from {
+
+                transform: translateY(-100%);
+
+            }
+
+            to {
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        
+
+        .header-container {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        
+
+        .logo {
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+        
+
+        .logo i {
+
+            margin-right: 10px;
+
+            font-size: 32px;
+
+        }
+
+        
+
+        nav ul {
+
+            display: flex;
+
+            list-style: none;
+
+        }
+
+        
+
+        nav ul li {
+
+            margin-left: 30px;
+
+        }
+
+        
+
+        nav ul li a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: 500;
+
+            transition: all 0.3s ease;
+
+            position: relative;
+
+        }
+
+        
+
+        nav ul li a:hover {
+
+            color: var(--accent-color);
+
+        }
+
+        
+
+        nav ul li a::after {
+
+            content: '';
+
+            position: absolute;
+
+            width: 0;
+
+            height: 2px;
+
+            background: var(--accent-color);
+
+            bottom: -5px;
+
+            left: 0;
+
+            transition: width 0.3s ease;
+
+        }
+
+        
+
+        nav ul li a:hover::after {
+
+            width: 100%;
+
+        }
+
+        
+
+        /* Hero Section */
+
+        .hero {
+
+            padding: 180px 0 100px;
+
+            background: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+
+            position: relative;
+
+            color: white;
+
+            text-align: center;
+
+        }
+
+        
+
+        .hero::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: rgba(89, 13, 34, 0.7);
+
+        }
+
+        
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 1;
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+        }
+
+        
+
+        .hero h1 {
+
+            font-size: 48px;
+
+            margin-bottom: 20px;
+
+            animation: fadeIn 1s ease-in;
+
+        }
+
+        
+
+        .hero p {
+
+            font-size: 20px;
+
+            margin-bottom: 30px;
+
+            animation: fadeIn 1s ease-in 0.3s both;
+
+        }
+
+        
+
+        .btn {
+
+            display: inline-block;
+
+            background-color: var(--primary-color);
+
+            color: white;
+
+            padding: 12px 30px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: all 0.3s ease;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+
+        }
+
+        
+
+        .btn:hover {
+
+            background-color: var(--dark-color);
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+
+        }
+
+        
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+        
+
+        /* Features Section */
+
+        .features {
+
+            padding: 80px 0;
+
+            background-color: white;
+
+        }
+
+        
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 60px;
+
+        }
+
+        
+
+        .section-title h2 {
+
+            font-size: 36px;
+
+            color: var(--dark-color);
+
+            position: relative;
+
+            display: inline-block;
+
+            padding-bottom: 15px;
+
+        }
+
+        
+
+        .section-title h2::after {
+
+            content: '';
+
+            position: absolute;
+
+            width: 70px;
+
+            height: 3px;
+
+            background-color: var(--primary-color);
+
+            bottom: 0;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+        }
+
+        
+
+        .features-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+
+        }
+
+        
+
+        .feature-card {
+
+            background-color: var(--light-color);
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            transition: all 0.3s ease;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+        }
+
+        
+
+        .feature-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 15px 30px rgba(255, 77, 109, 0.2);
+
+        }
+
+        
+
+        .feature-icon {
+
+            font-size: 50px;
+
+            color: var(--primary-color);
+
+            margin-bottom: 20px;
+
+        }
+
+        
+
+        .feature-card h3 {
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+
+            color: var(--dark-color);
+
+        }
+
+        
+
+        /* Testimonials */
+
+        .testimonials {
+
+            padding: 80px 0;
+
+            background-color: var(--light-color);
+
+        }
+
+        
+
+        .testimonial-slider {
+
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        
+
+        .testimonial-slide {
+
+            text-align: center;
+
+            padding: 30px;
+
+            display: none;
+
+            animation: fadeInOut 1s ease-in-out;
+
+        }
+
+        
+
+        @keyframes fadeInOut {
+
+            0% { opacity: 0; }
+
+            20% { opacity: 1; }
+
+            80% { opacity: 1; }
+
+            100% { opacity: 0; }
+
+        }
+
+        
+
+        .testimonial-slide.active {
+
+            display: block;
+
+        }
+
+        
+
+        .testimonial-slide img {
+
+            width: 100px;
+
+            height: 100px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            margin: 0 auto 20px;
+
+            border: 5px solid var(--primary-color);
+
+        }
+
+        
+
+        .testimonial-slide p {
+
+            font-style: italic;
+
+            margin-bottom: 20px;
+
+            font-size: 18px;
+
+        }
+
+        
+
+        .testimonial-slide h4 {
+
+            color: var(--primary-color);
+
+            font-size: 20px;
+
+        }
+
+        
+
+        /* Signup Form */
+
+        .signup {
+
+            padding: 80px 0;
+
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+
+            color: white;
+
+        }
+
+        
+
+        .form-container {
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            background-color: white;
+
+            padding: 40px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+            transform: perspective(1000px) rotateY(0deg);
+
+            transition: transform 0.5s ease;
+
+        }
+
+        
+
+        .form-container:hover {
+
+            transform: perspective(1000px) rotateY(5deg);
+
+        }
+
+        
+
+        .form-title {
+
+            text-align: center;
+
+            color: var(--dark-color);
+
+            margin-bottom: 30px;
+
+        }
+
+        
+
+        .form-title h2 {
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+
+        }
+
+        
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+        
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: var(--dark-color);
+
+            font-weight: 500;
+
+        }
+
+        
+
+        .form-group input,
+
+        .form-group select {
+
+            width: 100%;
+
+            padding: 12px 15px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+            transition: all 0.3s ease;
+
+        }
+
+        
+
+        .form-group input:focus,
+
+        .form-group select:focus {
+
+            border-color: var(--primary-color);
+
+            box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.2);
+
+            outline: none;
+
+        }
+
+        
+
+        .form-submit {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+        }
+
+        
+
+        /* Footer */
+
+        footer {
+
+            background-color: var(--dark-color);
+
+            color: white;
+
+            padding: 50px 0 20px;
+
+        }
+
+        
+
+        .footer-content {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 30px;
+
+            margin-bottom: 40px;
+
+        }
+
+        
+
+        .footer-column h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+
+            position: relative;
+
+            padding-bottom: 10px;
+
+        }
+
+        
+
+        .footer-column h3::after {
+
+            content: '';
+
+            position: absolute;
+
+            width: 50px;
+
+            height: 2px;
+
+            background-color: var(--primary-color);
+
+            bottom: 0;
+
+            left: 0;
+
+        }
+
+        
+
+        .footer-column ul {
+
+            list-style: none;
+
+        }
+
+        
+
+        .footer-column ul li {
+
+            margin-bottom: 10px;
+
+        }
+
+        
+
+        .footer-column ul li a {
+
+            color: #ccc;
+
+            text-decoration: none;
+
+            transition: all 0.3s ease;
+
+        }
+
+        
+
+        .footer-column ul li a:hover {
+
+            color: var(--primary-color);
+
+            padding-left: 5px;
+
+        }
+
+        
+
+        .social-links {
+
+            display: flex;
+
+            gap: 15px;
+
+        }
+
+        
+
+        .social-links a {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 40px;
+
+            height: 40px;
+
+            background-color: rgba(255, 255, 255, 0.1);
+
+            border-radius: 50%;
+
+            color: white;
+
+            transition: all 0.3s ease;
+
+        }
+
+        
+
+        .social-links a:hover {
+
+            background-color: var(--primary-color);
+
+            transform: translateY(-3px);
+
+        }
+
+        
+
+        .footer-bottom {
+
+            text-align: center;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        }
+
+        
+
+        /* Responsive */
+
+        @media (max-width: 768px) {
+
+            .header-container {
+
+                flex-direction: column;
+
+            }
+
+            
+
+            nav ul {
+
+                margin-top: 20px;
+
+            }
+
+            
+
+            nav ul li {
+
+                margin: 0 10px;
+
+            }
+
+            
+
+            .hero h1 {
+
+                font-size: 36px;
+
+            }
+
+            
+
+            .hero p {
+
+                font-size: 18px;
+
+            }
+
+            
+
+            .section-title h2 {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="container header-container">
+
+            <div class="logo">
+
+                <i class="fas fa-heart"></i>
+
+                LoveConnect
+
+            </div>
+
+            <nav>
+
+                <ul>
+
+                    <li><a href="#home">Home</a></li>
+
+                    <li><a href="#features">Features</a></li>
+
+                    <li><a href="#testimonials">Success Stories</a></li>
+
+                    <li><a href="#signup">Join Now</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+
+    <!-- Hero Section -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>Find Your Perfect Match Today</h1>
+
+            <p>Join thousands of happy couples who found love through our unique matching system. Start your journey to a meaningful relationship now.</p>
+
+            <a href="#signup" class="btn">Create Free Account</a>
+
+        </div>
+
+    </section>
+
+<center> <script type="text/javascript">
+	atOptions = {
+		'key' : '3a7026832bc875021a233dc1a6511c54',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//tasktrivialaggregated.com/3a7026832bc875021a233dc1a6511c54/invoke.js"></script> </center>
+
+    <!-- Features Section -->
+
+    <section class="features" id="features">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Why Choose LoveConnect</h2>
+
+            </div>
+
+            <div class="features-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="fas fa-brain"></i>
+
+                    </div>
+
+                    <h3>Smart Matching</h3>
+
+                    <p>Our advanced algorithm analyzes your personality, interests, and values to find your most compatible matches.</p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="fas fa-shield-alt"></i>
+
+                    </div>
+
+                    <h3>Verified Profiles</h3>
+
+                    <p>We verify all profiles to ensure you're connecting with real people looking for genuine relationships.</p>
+
+                </div>
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+
+                        <i class="fas fa-comments"></i>
+
+                    </div>
+
+                    <h3>Quality Conversations</h3>
+
+                    <p>Our messaging system encourages meaningful conversations that lead to real connections.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<center><script type="text/javascript">
+	atOptions = {
+		'key' : '3a7026832bc875021a233dc1a6511c54',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//tasktrivialaggregated.com/3a7026832bc875021a233dc1a6511c54/invoke.js"></script></center>
+
+    <!-- Testimonials -->
+
+    <section class="testimonials" id="testimonials">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Success Stories</h2>
+
+            </div>
+
+            <div class="testimonial-slider">
+
+                <div class="testimonial-slide active">
+
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Happy Couple">
+
+                    <p>"I was skeptical about online dating, but LoveConnect changed my life. I met my soulmate within a month of joining!"</p>
+
+                    <h4>- Sarah & Michael, Married 2022</h4>
+
+                </div>
+
+                <div class="testimonial-slide">
+
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Happy Couple">
+
+                    <p>"The matching system really works! We had so much in common from the very first date. Thank you LoveConnect!"</p>
+
+                    <h4>- Jessica & David, Together 1 year</h4>
+
+                </div>
+
+                <div class="testimonial-slide">
+
+                    <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Happy Couple">
+
+                    <p>"After years of bad dates, I finally found someone who truly understands me. We're getting married next summer!"</p>
+
+                    <h4>- Emily & James, Engaged</h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<center><script type="text/javascript">
+	atOptions = {
+		'key' : '3a7026832bc875021a233dc1a6511c54',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//tasktrivialaggregated.com/3a7026832bc875021a233dc1a6511c54/invoke.js"></script></center>
+
+    <!-- Signup Form -->
+
+    <section class="signup" id="signup">
+
+        <div class="container">
+
+            <div class="form-container">
+
+                <div class="form-title">
+
+                    <h2>Create Your Free Account</h2>
+
+                    <p>Start your journey to love today</p>
+
+                </div>
+
+                <form id="signupForm">
+
+                    <div class="form-group">
+
+                        <label for="name">Full Name</label>
+
+                        <input type="text" id="name" name="name" required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="email">Email Address</label>
+
+                        <input type="email" id="email" name="email" required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="password">Password</label>
+
+                        <input type="password" id="password" name="password" required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="gender">I am a</label>
+
+                        <select id="gender" name="gender" required>
+
+                            <option value="">Select Gender</option>
+
+                            <option value="male">Man</option>
+
+                            <option value="female">Woman</option>
+
+                            <option value="other">Other</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="interest">Looking for a</label>
+
+                        <select id="interest" name="interest" required>
+
+                            <option value="">Select Preference</option>
+
+                            <option value="male">Man</option>
+
+                            <option value="female">Woman</option>
+
+                            <option value="any">Anyone</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-submit">
+
+                        <button type="submit" class="btn" id="createAccountBtn">Create Account</button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<center><script type="text/javascript">
+	atOptions = {
+		'key' : '3a7026832bc875021a233dc1a6511c54',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//tasktrivialaggregated.com/3a7026832bc875021a233dc1a6511c54/invoke.js"></script></center>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-column">
+
+                    <h3>LoveConnect</h3>
+
+                    <p>Helping people find meaningful connections since 2015. Our mission is to bring compatible singles together for lasting relationships.</p>
+
+                    <div class="social-links">
+
+                        <a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235"><i class="fab fa-twitter"></i></a>
+
+
+                        <a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235"><i class="fab fa-instagram"></i></a>
+
+
+                        <a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235"><i class="fab fa-pinterest"></i></a>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>Quick Links</h3>
+
+                    <ul>
+
+                        <li><a href="#home">Home</a></li>
+
+                        <li><a href="#features">Features</a></li>
+
+                        <li><a href="#testimonials">Success Stories</a></li>
+
+                        <li><a href="#signup">Join Now</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="footer-column">
+
+                    <h3>Support</h3>
+
+                    <ul>
+
+                        <li><a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235">Help Center</a></li>
+
+                        <li><a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235">Safety Tips</a></li>
+
+                        <li><a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235">Contact Us</a></li>
+
+                        <li><a href="https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235">Privacy Policy</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>&copy; 2023 LoveConnect. All rights reserved.</p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+    <script>
+
+        // Testimonial Slider
+
+        let currentSlide = 0;
+
+        const slides = document.querySelectorAll('.testimonial-slide');
+
+        
+
+        function showSlide(n) {
+
+            slides.forEach(slide => slide.classList.remove('active'));
+
+            currentSlide = (n + slides.length) % slides.length;
+
+            slides[currentSlide].classList.add('active');
+
+        }
+
+        
+
+        function nextSlide() {
+
+            showSlide(currentSlide + 1);
+
+        }
+
+        
+
+        // Change slide every 5 seconds
+
+        setInterval(nextSlide, 5000);
+
+        
+
+        // Form submission
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+
+            e.preventDefault();
+
+            // Here you would normally submit the form to your server
+
+            // For this demo, we'll just show an alert and redirect
+
+
+            alert('Account created successfully! Redirecting you now...');
+
+            window.location.href = 'https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235';
+
+        });
+
+        
+
+        // Alternatively, if you want the button to directly open direct link without form submission
+
+        document.getElementById('createAccountBtn').addEventListener('click', function() {
+
+            window.location.href = 'https://tasktrivialaggregated.com/rrtu0r67d?key=f2cbf38012a28d3572da271768156235';
+
+        });
+
+        
+
+        // Smooth scrolling for anchor links
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+            anchor.addEventListener('click', function(e) {
+
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+
+                    behavior: 'smooth'
+
+                });
+
+            });
+
+        });
+
+        
+
+        // Animation on scroll
+
+        window.addEventListener('scroll', function() {
+
+            const features = document.querySelector('.features');
+
+            const form = document.querySelector('.form-container');
+
+            
+
+            if (isInViewport(features)) {
+
+                features.style.opacity = '1';
+
+                features.style.transform = 'translateY(0)';
+
+            }
+
+            
+
+            if (isInViewport(form)) {
+
+                form.style.opacity = '1';
+
+                form.style.transform = 'perspective(1000px) rotateY(0deg)';
+
+            }
+
+        });
+
+        
+
+        function isInViewport(element) {
+
+            const rect = element.getBoundingClientRect();
+
+            return (
+
+                rect.top >= 0 &&
+
+                rect.left >= 0 &&
+
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
